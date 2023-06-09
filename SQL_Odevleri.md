@@ -26,7 +26,7 @@ WHERE rental_rate = 0.99 AND (replacement_cost = 12.99 OR replacement_cost = 28.
 ```
 SELECT last_name FROM customer
 WHERE first_name = 'Mary';
-````
+```
 
 ### 5. film  tablosundaki uzunluğu(length) 50 ten büyük OLMAYIP aynı zamanda rental_rate değeri 2.99 veya 4.99 OLMAYAN verileri sıralayınız.
 
@@ -34,6 +34,8 @@ WHERE first_name = 'Mary';
 SELECT * FROM film
 WHERE NOT length > 50 AND NOT (rental_rate = 2.99 OR rental_rate = 4.99);
 ```
+
+[Ödev 1 Patika Linki](https://academy.patika.dev/tr/courses/sql/Odev1)
 
 ## ÖDEV 2
 
@@ -51,12 +53,13 @@ SELECT first_name, last_name FROM actor
 WHERE first_name IN ('Penelope', 'Nick', 'Ed');
 ```
 
-### 3. film  tablosunda bulunan tüm sütunlardaki verileri rental_rate 0.99, 2.99, 4.99  VE  replacement_cost 12.99, 15.99, 28.99 olma koşullarıyla sıralayınız. ( IN operatörünü kullanınız.)
+### 3. film  tablosunda bulunan tüm sütunlardaki verileri rental_rate 0.99, 2.99, 4.99 VE replacement_cost 12.99, 15.99, 28.99 olma koşullarıyla sıralayınız. ( IN operatörünü kullanınız.)
 
 ```
 SELECT * FROM film
 WHERE rental_rate IN (0.99, 2.99, 4.99) AND replacement_cost IN (12.99, 15.99, 28.99);
 ```
+[Ödev 2 Patika Linki](https://academy.patika.dev/tr/courses/sql/Odev2)
 
 ## ÖDEV 3
 
@@ -87,3 +90,42 @@ WHERE title ILIKE '%t%t%t%t%';
 SELECT * FROM film
 WHERE title LIKE 'C%' AND length < 90 AND rental_rate IN (2.99);
 ```
+
+[Ödev 3 Patika Linki](https://academy.patika.dev/tr/courses/sql/Odev3)
+
+## ÖDEV 4
+
+### 1. film  tablosunda bulunan replacement_cost sütununda bulunan birbirinden farklı değerleri sıralayınız.
+
+```
+SELECT DISTINCT replacement_cost FROM film;
+```
+
+### 2. film tablosunda bulunan replacement_cost sütununda birbirinden farklı kaç tane veri vardır?
+
+```
+SELECT COUNT (DISTINCT replacement_cost) FROM film;
+```
+
+### 3. film tablosunda bulunan film isimlerinde (title) kaç tanesini T karakteri ile başlar ve aynı zamanda rating 'G' ye eşittir?
+
+```
+SELECT COUNT (*) FROM film
+WHERE title LIKE 'T%' AND rating = 'G';
+```
+
+### 4. country tablosunda bulunan ülke isimlerinden (country) kaç tanesi 5 karakterden oluşmaktadır?
+
+```
+SELECT COUNT (*) FROM country
+WHERE country LIKE '_____';
+```
+
+### 5. city  tablosundaki şehir isimlerinin kaç tanesi 'R' veya r karakteri ile biter?
+
+```
+SELECT COUNT(city) FROM city
+WHERE city ILIKE '%r';
+```
+
+[Ödev 4 Patika Linki](https://academy.patika.dev/tr/courses/sql/Odev4)
