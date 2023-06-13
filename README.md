@@ -475,8 +475,10 @@ AND replacement_cost = (SELECT MIN(replacement_cost) FROM film);
 ### 4. payment tablosunda en fazla sayıda alışveriş yapan müşterileri(customer) sıralayınız.
 
 ```
-SELECT * FROM payment
-WHERE amount = (SELECT MAX(amount) FROM payment);
+SELECT SUM(amount), customer.first_name, customer.last_name FROM payment
+JOIN customer ON customer.customer_id = payment.customer_id
+GROUP BY first_name, last_name
+ORDER BY SUM(amount) DESC;
 ```
 
 [Ödev 12 Patika Linki](https://academy.patika.dev/tr/courses/sql/Odev12)
